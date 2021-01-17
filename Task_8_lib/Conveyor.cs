@@ -41,12 +41,10 @@ namespace Task_8_lib
             {
                 return State switch
                 {
-                    ConveyorState.NeedMoreMaterials => ConveyorState.AddMaterials,
                     ConveyorState.AddMaterials => ConveyorState.Working,
                     ConveyorState.Working => Random.NextDouble() > ProblemChance
                         ? (Random.NextDouble() > 0.5 ? ConveyorState.Broken : ConveyorState.NeedMoreMaterials)
                         : ConveyorState.Working,
-                    ConveyorState.Broken => ConveyorState.InRepairing,
                     ConveyorState.InRepairing => ConveyorState.Working,
                     _ => ConveyorState.Broken
                 };
@@ -60,15 +58,17 @@ namespace Task_8_lib
             {
                 var next = NextState;
                 UpdateState(next);
+                Thread.Sleep(1000);
                 switch (State)
                 {
                     case ConveyorState.NeedMoreMaterials:
-                        
                         AddMaterials?.Invoke(this);
                         break;
                     case ConveyorState.Broken:
-                        
                         Repair?.Invoke(this);
+                        break;
+                    case ConveyorState.Working:
+                        Update?.Invoke(this, State);
                         break;
                 }
             }
