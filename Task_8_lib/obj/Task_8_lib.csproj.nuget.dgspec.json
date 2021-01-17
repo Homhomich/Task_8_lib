@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/anna/RiderProjects/Task_8_lib/Task_8_lib/Task_8_lib.csproj": {}
+    "C:\\Users\\zhano\\RiderProjects\\Task_8_lib\\Task_8_lib\\Task_8_lib.csproj": {}
   },
   "projects": {
-    "/home/anna/RiderProjects/Task_8_lib/Task_8_lib/Task_8_lib.csproj": {
+    "C:\\Users\\zhano\\RiderProjects\\Task_8_lib\\Task_8_lib\\Task_8_lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/anna/RiderProjects/Task_8_lib/Task_8_lib/Task_8_lib.csproj",
+        "projectUniqueName": "C:\\Users\\zhano\\RiderProjects\\Task_8_lib\\Task_8_lib\\Task_8_lib.csproj",
         "projectName": "Task_8_lib",
-        "projectPath": "/home/anna/RiderProjects/Task_8_lib/Task_8_lib/Task_8_lib.csproj",
-        "packagesPath": "/home/anna/.nuget/packages/",
-        "outputPath": "/home/anna/RiderProjects/Task_8_lib/Task_8_lib/obj/",
+        "projectPath": "C:\\Users\\zhano\\RiderProjects\\Task_8_lib\\Task_8_lib\\Task_8_lib.csproj",
+        "packagesPath": "C:\\Users\\zhano\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zhano\\RiderProjects\\Task_8_lib\\Task_8_lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/anna/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\zhano\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -50,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

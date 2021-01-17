@@ -25,10 +25,16 @@ namespace Task_8_lib
 
         #region properties
 
-        private const double ProblemChance = 0.39350145;
+        private const double ProblemChance = 0.69350145;
 
-        internal ConveyorState State { get; private set; } = ConveyorState.NeedMoreMaterials;
+        private ConveyorState State { get; set; } = ConveyorState.Working;
+        
+        private Random Random { get; set; } = new Random();
 
+        #endregion
+
+        #region methods
+        
         private ConveyorState NextState
         {
             get
@@ -37,8 +43,8 @@ namespace Task_8_lib
                 {
                     ConveyorState.NeedMoreMaterials => ConveyorState.AddMaterials,
                     ConveyorState.AddMaterials => ConveyorState.Working,
-                    ConveyorState.Working => new Random().NextDouble() > ProblemChance
-                        ? ConveyorState.Broken
+                    ConveyorState.Working => Random.NextDouble() > ProblemChance
+                        ? (Random.NextDouble() > 0.5 ? ConveyorState.Broken : ConveyorState.NeedMoreMaterials)
                         : ConveyorState.Working,
                     ConveyorState.Broken => ConveyorState.InRepairing,
                     ConveyorState.InRepairing => ConveyorState.Working,
@@ -46,10 +52,6 @@ namespace Task_8_lib
                 };
             }
         }
-
-        #endregion
-
-        #region methods
 
         internal void StartWorking()
         {
@@ -61,11 +63,11 @@ namespace Task_8_lib
                 switch (State)
                 {
                     case ConveyorState.NeedMoreMaterials:
-                        Thread.Sleep(4000);
+                        
                         AddMaterials?.Invoke(this);
                         break;
                     case ConveyorState.Broken:
-                        Thread.Sleep(3500);
+                        
                         Repair?.Invoke(this);
                         break;
                 }
